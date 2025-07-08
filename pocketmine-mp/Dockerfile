@@ -1,5 +1,5 @@
 # Build stage for compilation. Build tools like g++ will not be copied into the final stage to reduce image size.
-FROM ubuntu:18.04
+FROM ubuntu:22.04
 ARG PMMP_TAG
 ARG COMPILE_SH_ARGS="-f -g"
 ARG PMMP_REPO=pmmp/PocketMine-MP
@@ -27,7 +27,7 @@ RUN php -dphar.readonly=0 build/server-phar.php --git $(git rev-parse HEAD)
 # Just to make sure DevTools didn't false-positive-exit
 RUN test -f /build/PocketMine-MP.phar
 
-FROM ubuntu:18.04
+FROM ubuntu:22.04
 LABEL maintainer="PMMP Team <team@pmmp.io>"
 
 RUN apt-get update && apt-get install --no-install-recommends -y ca-certificates wget
