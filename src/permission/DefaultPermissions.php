@@ -72,67 +72,77 @@ abstract class DefaultPermissions{
 		$operatorRoot = self::registerNoArgsDesc(self::ROOT_OPERATOR, [$consoleRoot]);
 		$everyoneRoot = self::registerNoArgsDesc(self::ROOT_USER, [$operatorRoot]);
 
-		self::registerNoArgsDesc(Names::BROADCAST_ADMIN, [$operatorRoot]);
-		self::registerNoArgsDesc(Names::BROADCAST_USER, [$everyoneRoot]);
-		self::registerNoArgsDesc(Names::COMMAND_BAN_IP, [$operatorRoot]);
-		self::registerNoArgsDesc(Names::COMMAND_BAN_LIST, [$operatorRoot]);
-		self::registerNoArgsDesc(Names::COMMAND_BAN_PLAYER, [$operatorRoot]);
-		self::registerNoArgsDesc(Names::COMMAND_CLEAR_OTHER, [$operatorRoot]);
-		self::registerNoArgsDesc(Names::COMMAND_CLEAR_SELF, [$everyoneRoot]);
-		self::registerNoArgsDesc(Names::COMMAND_DEFAULTGAMEMODE, [$operatorRoot]);
-		self::registerNoArgsDesc(Names::COMMAND_DIFFICULTY, [$operatorRoot]);
 		self::registerNoArgsDesc(Names::COMMAND_DUMPMEMORY, [$consoleRoot]);
-		self::registerNoArgsDesc(Names::COMMAND_EFFECT_OTHER, [$operatorRoot]);
-		self::registerNoArgsDesc(Names::COMMAND_EFFECT_SELF, [$operatorRoot]);
-		self::registerNoArgsDesc(Names::COMMAND_ENCHANT_OTHER, [$operatorRoot]);
-		self::registerNoArgsDesc(Names::COMMAND_ENCHANT_SELF, [$operatorRoot]);
-		self::registerNoArgsDesc(Names::COMMAND_GAMEMODE_OTHER, [$operatorRoot]);
-		self::registerNoArgsDesc(Names::COMMAND_GAMEMODE_SELF, [$operatorRoot]);
-		self::registerNoArgsDesc(Names::COMMAND_GC, [$operatorRoot]);
-		self::registerNoArgsDesc(Names::COMMAND_GIVE_OTHER, [$operatorRoot]);
-		self::registerNoArgsDesc(Names::COMMAND_GIVE_SELF, [$operatorRoot]);
-		self::registerNoArgsDesc(Names::COMMAND_HELP, [$everyoneRoot]);
-		self::registerNoArgsDesc(Names::COMMAND_KICK, [$operatorRoot]);
-		self::registerNoArgsDesc(Names::COMMAND_KILL_OTHER, [$operatorRoot]);
-		self::registerNoArgsDesc(Names::COMMAND_KILL_SELF, [$everyoneRoot]);
-		self::registerNoArgsDesc(Names::COMMAND_LIST, [$operatorRoot]);
-		self::registerNoArgsDesc(Names::COMMAND_ME, [$everyoneRoot]);
-		self::registerNoArgsDesc(Names::COMMAND_OP_GIVE, [$operatorRoot]);
-		self::registerNoArgsDesc(Names::COMMAND_OP_TAKE, [$operatorRoot]);
-		self::registerNoArgsDesc(Names::COMMAND_PARTICLE, [$operatorRoot]);
-		self::registerNoArgsDesc(Names::COMMAND_PLUGINS, [$operatorRoot]);
-		self::registerNoArgsDesc(Names::COMMAND_SAVE_DISABLE, [$operatorRoot]);
-		self::registerNoArgsDesc(Names::COMMAND_SAVE_ENABLE, [$operatorRoot]);
-		self::registerNoArgsDesc(Names::COMMAND_SAVE_PERFORM, [$operatorRoot]);
-		self::registerNoArgsDesc(Names::COMMAND_SAY, [$operatorRoot]);
-		self::registerNoArgsDesc(Names::COMMAND_SEED, [$operatorRoot]);
-		self::registerNoArgsDesc(Names::COMMAND_SETWORLDSPAWN, [$operatorRoot]);
-		self::registerNoArgsDesc(Names::COMMAND_SPAWNPOINT_OTHER, [$operatorRoot]);
-		self::registerNoArgsDesc(Names::COMMAND_SPAWNPOINT_SELF, [$operatorRoot]);
-		self::registerNoArgsDesc(Names::COMMAND_STATUS, [$operatorRoot]);
-		self::registerNoArgsDesc(Names::COMMAND_STOP, [$operatorRoot]);
-		self::registerNoArgsDesc(Names::COMMAND_TELEPORT_OTHER, [$operatorRoot]);
-		self::registerNoArgsDesc(Names::COMMAND_TELEPORT_SELF, [$operatorRoot]);
-		self::registerNoArgsDesc(Names::COMMAND_TELL, [$everyoneRoot]);
-		self::registerNoArgsDesc(Names::COMMAND_TIME_ADD, [$operatorRoot]);
-		self::registerNoArgsDesc(Names::COMMAND_TIME_QUERY, [$operatorRoot]);
-		self::registerNoArgsDesc(Names::COMMAND_TIME_SET, [$operatorRoot]);
-		self::registerNoArgsDesc(Names::COMMAND_TIME_START, [$operatorRoot]);
-		self::registerNoArgsDesc(Names::COMMAND_TIME_STOP, [$operatorRoot]);
-		self::registerNoArgsDesc(Names::COMMAND_TIMINGS, [$operatorRoot]);
-		self::registerNoArgsDesc(Names::COMMAND_TITLE_OTHER, [$operatorRoot]);
-		self::registerNoArgsDesc(Names::COMMAND_TITLE_SELF, [$operatorRoot]);
-		self::registerNoArgsDesc(Names::COMMAND_TRANSFERSERVER, [$operatorRoot]);
-		self::registerNoArgsDesc(Names::COMMAND_UNBAN_IP, [$operatorRoot]);
-		self::registerNoArgsDesc(Names::COMMAND_UNBAN_PLAYER, [$operatorRoot]);
-		self::registerNoArgsDesc(Names::COMMAND_VERSION, [$everyoneRoot]);
-		self::registerNoArgsDesc(Names::COMMAND_WHITELIST_ADD, [$operatorRoot]);
-		self::registerNoArgsDesc(Names::COMMAND_WHITELIST_DISABLE, [$operatorRoot]);
-		self::registerNoArgsDesc(Names::COMMAND_WHITELIST_ENABLE, [$operatorRoot]);
-		self::registerNoArgsDesc(Names::COMMAND_WHITELIST_LIST, [$operatorRoot]);
-		self::registerNoArgsDesc(Names::COMMAND_WHITELIST_RELOAD, [$operatorRoot]);
-		self::registerNoArgsDesc(Names::COMMAND_WHITELIST_REMOVE, [$operatorRoot]);
-		self::registerNoArgsDesc(Names::COMMAND_XP_OTHER, [$operatorRoot]);
-		self::registerNoArgsDesc(Names::COMMAND_XP_SELF, [$operatorRoot]);
+
+		foreach([
+			Names::BROADCAST_ADMIN,
+			Names::COMMAND_BAN_IP,
+			Names::COMMAND_BAN_LIST,
+			Names::COMMAND_BAN_PLAYER,
+			Names::COMMAND_CLEAR_OTHER,
+			Names::COMMAND_DEFAULTGAMEMODE,
+			Names::COMMAND_DIFFICULTY,
+			Names::COMMAND_EFFECT_OTHER,
+			Names::COMMAND_EFFECT_SELF,
+			Names::COMMAND_ENCHANT_OTHER,
+			Names::COMMAND_ENCHANT_SELF,
+			Names::COMMAND_GAMEMODE_OTHER,
+			Names::COMMAND_GAMEMODE_SELF,
+			Names::COMMAND_GC,
+			Names::COMMAND_GIVE_OTHER,
+			Names::COMMAND_GIVE_SELF,
+			Names::COMMAND_KICK,
+			Names::COMMAND_KILL_OTHER,
+			Names::COMMAND_LIST,
+			Names::COMMAND_OP_GIVE,
+			Names::COMMAND_OP_TAKE,
+			Names::COMMAND_PARTICLE,
+			Names::COMMAND_PLUGINS,
+			Names::COMMAND_SAVE_DISABLE,
+			Names::COMMAND_SAVE_ENABLE,
+			Names::COMMAND_SAVE_PERFORM,
+			Names::COMMAND_SAY,
+			Names::COMMAND_SEED,
+			Names::COMMAND_SETWORLDSPAWN,
+			Names::COMMAND_SPAWNPOINT_OTHER,
+			Names::COMMAND_SPAWNPOINT_SELF,
+			Names::COMMAND_STATUS,
+			Names::COMMAND_STOP,
+			Names::COMMAND_TELEPORT_OTHER,
+			Names::COMMAND_TELEPORT_SELF,
+			Names::COMMAND_TIME_ADD,
+			Names::COMMAND_TIME_QUERY,
+			Names::COMMAND_TIME_SET,
+			Names::COMMAND_TIME_START,
+			Names::COMMAND_TIME_STOP,
+			Names::COMMAND_TIMINGS,
+			Names::COMMAND_TITLE_OTHER,
+			Names::COMMAND_TITLE_SELF,
+			Names::COMMAND_TRANSFERSERVER,
+			Names::COMMAND_UNBAN_IP,
+			Names::COMMAND_UNBAN_PLAYER,
+			Names::COMMAND_WHITELIST_ADD,
+			Names::COMMAND_WHITELIST_DISABLE,
+			Names::COMMAND_WHITELIST_ENABLE,
+			Names::COMMAND_WHITELIST_LIST,
+			Names::COMMAND_WHITELIST_RELOAD,
+			Names::COMMAND_WHITELIST_REMOVE,
+			Names::COMMAND_XP_OTHER,
+			Names::COMMAND_XP_SELF,
+		] as $permission){
+			self::registerNoArgsDesc($permission, [$operatorRoot]);
+		}
+
+		foreach([
+			Names::COMMAND_KILL_SELF,
+			Names::COMMAND_ME,
+			Names::COMMAND_HELP,
+			Names::BROADCAST_USER,
+			Names::COMMAND_CLEAR_SELF,
+			Names::COMMAND_TELL,
+			Names::COMMAND_VERSION,
+		] as $permission){
+			self::registerNoArgsDesc($permission, [$everyoneRoot]);
+		}
 	}
 }
