@@ -27,6 +27,7 @@ use pocketmine\lang\KnownTranslationParameterInfo;
 use pocketmine\lang\Translatable;
 use pocketmine\permission\DefaultPermissionNames as Names;
 use pocketmine\utils\AssumptionFailedError;
+use function count;
 use function preg_last_error_msg;
 use function preg_replace;
 
