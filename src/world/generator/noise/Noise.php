@@ -292,7 +292,7 @@ abstract class Noise{
 		assert($zSize % $zSamplingRate === 0, new \InvalidArgumentException("zSize % zSamplingRate must return 0"));
 		assert($ySize % $ySamplingRate === 0, new \InvalidArgumentException("ySize % ySamplingRate must return 0"));
 
-		$noiseArray = array_fill(0, $xSize + 1, array_fill(0, $zSize + 1, []));
+		$noiseArray = array_fill(0, $xSize + 1, array_fill(0, $zSize + 1, array_fill(0, $ySize + 1, 0)));
 
 		for($xx = 0; $xx <= $xSize; $xx += $xSamplingRate){
 			for($zz = 0; $zz <= $zSize; $zz += $zSamplingRate){
