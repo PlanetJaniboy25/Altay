@@ -7,6 +7,10 @@ use pocketmine\event\world\WorldLoadEvent;
 use pocketmine\plugin\PluginBase;
 
 /**
+ * Script plugins are self-contained .php files. They are intended for quick testing only.
+ * They don't support all the features of a normal plugin.
+ * See the documentation at https://doc.pmmp.io/en/rtfd/developers/plugin-docs/plugin-formats/development.html#script
+ *
  * @main pmmp\ExampleScriptPlugin\Main
  * @api 5.37.0
  * @version 1.0.0
