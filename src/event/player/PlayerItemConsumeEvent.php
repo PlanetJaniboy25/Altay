@@ -27,6 +27,7 @@ use pocketmine\event\Cancellable;
 use pocketmine\event\CancellableTrait;
 use pocketmine\item\Item;
 use pocketmine\player\Player;
+use pocketmine\utils\Utils;
 
 /**
  * Called when a player eats something
@@ -34,7 +35,8 @@ use pocketmine\player\Player;
 class PlayerItemConsumeEvent extends PlayerEvent implements Cancellable{
 	use CancellableTrait;
 
-	private ?Item $residue = null;
+	/** @var Item[] */
+	private array $residue = [];
 
 	public function __construct(
 		Player $player,
@@ -47,12 +49,20 @@ class PlayerItemConsumeEvent extends PlayerEvent implements Cancellable{
 		return clone $this->item;
 	}
 
-	public function getResidue() : ?Item{
-		return $this->residue === null ? null : clone $this->residue;
+	/**
+	 * @return Item[]
+	 */
+	public function getResidue() : array{
+		return $this->residue;
 	}
 
-	/** Allows overriding the residue item (or null to remove residue) */
-	public function setResidue(?Item $item) : void{
-		$this->residue = $item !== null ? clone $item : null;
+	/**
+	 * Allows overriding the residue items returned after consumption.
+	 *
+	 * @param Item[] $items
+	 */
+	public function setResidue(array $items) : void{
+		Utils::validateArrayValueType($items, function(Item $_) : void{});
+		$this->residue = $items;
 	}
 }
