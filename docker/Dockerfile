@@ -5,7 +5,7 @@ ARG COMPILE_SH_ARGS="-f -g -P5"
 RUN apt-get update && apt-get install --no-install-recommends -y curl ca-certificates build-essential m4 gzip bzip2 bison git cmake autoconf automake pkg-config libtool libtool-bin re2c
 
 RUN mkdir /opt/pocketmine
-COPY ./build/php/compile.sh /opt/pocketmine
+COPY --chmod=700 ./build/php/compile.sh /opt/pocketmine
 WORKDIR /opt/pocketmine
 RUN ./compile.sh -t linux64 -j ${THREADS:-$(grep -E ^processor /proc/cpuinfo | wc -l)} ${COMPILE_SH_ARGS}
 
