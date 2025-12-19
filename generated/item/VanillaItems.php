@@ -293,6 +293,7 @@ final class VanillaItems{
 	private static Record $_mRECORD_CREATOR;
 	private static Record $_mRECORD_CREATOR_MUSIC_BOX;
 	private static Record $_mRECORD_FAR;
+	private static Record $_mRECORD_LAVA_CHICKEN;
 	private static Record $_mRECORD_MALL;
 	private static Record $_mRECORD_MELLOHI;
 	private static Record $_mRECORD_OTHERSIDE;
@@ -648,6 +649,7 @@ final class VanillaItems{
 			"record_creator" => fn(Record $v) => self::$_mRECORD_CREATOR = $v,
 			"record_creator_music_box" => fn(Record $v) => self::$_mRECORD_CREATOR_MUSIC_BOX = $v,
 			"record_far" => fn(Record $v) => self::$_mRECORD_FAR = $v,
+			"record_lava_chicken" => fn(Record $v) => self::$_mRECORD_LAVA_CHICKEN = $v,
 			"record_mall" => fn(Record $v) => self::$_mRECORD_MALL = $v,
 			"record_mellohi" => fn(Record $v) => self::$_mRECORD_MELLOHI = $v,
 			"record_otherside" => fn(Record $v) => self::$_mRECORD_OTHERSIDE = $v,
@@ -2025,6 +2027,11 @@ final class VanillaItems{
 	public static function RECORD_FAR() : Record{
 		if(!isset(self::$_mRECORD_FAR)){ self::init(); }
 		return VanillaItemsInputs::preprocessMember(self::$_mRECORD_FAR);
+	}
+
+	public static function RECORD_LAVA_CHICKEN() : Record{
+		if(!isset(self::$_mRECORD_LAVA_CHICKEN)){ self::init(); }
+		return VanillaItemsInputs::preprocessMember(self::$_mRECORD_LAVA_CHICKEN);
 	}
 
 	public static function RECORD_MALL() : Record{
