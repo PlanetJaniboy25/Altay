@@ -86,14 +86,6 @@ abstract class RegistrySource{
 	}
 
 	/**
-	 * Returns whether the generator should generate a trait, instead of a concrete class.
-	 * This might be useful if you want to compose a registry class with custom functions.
-	 */
-	public function isTargetTrait() : bool{
-		return false;
-	}
-
-	/**
 	 * Ensures that no other registry gets setup while this one is being set up, to prevent suspicious dependencies
 	 */
 	private function setupWrapper() : void{
