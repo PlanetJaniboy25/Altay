@@ -68,7 +68,6 @@ use pocketmine\item\Item;
 use pocketmine\item\ToolTier;
 use pocketmine\item\VanillaItems;
 use pocketmine\math\Facing;
-use pocketmine\utils\CloningRegistrySource;
 use pocketmine\utils\RegistrySource;
 use pocketmine\world\generator\object\TreeType;
 use function is_int;

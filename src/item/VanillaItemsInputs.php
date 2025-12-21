@@ -35,7 +35,6 @@ use pocketmine\item\enchantment\ItemEnchantmentTags as EnchantmentTags;
 use pocketmine\item\ItemIdentifier as IID;
 use pocketmine\item\VanillaArmorMaterials as ArmorMaterials;
 use pocketmine\math\Vector3;
-use pocketmine\utils\CloningRegistrySource;
 use pocketmine\utils\RegistrySource;
 use pocketmine\world\World;
 use function is_int;
