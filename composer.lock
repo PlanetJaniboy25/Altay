@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3f709b73f08e296bbb3933438ac0a7ad",
+    "content-hash": "2b7b621d09bdc476e2e92152d393d2ed",
     "packages": [
         {
             "name": "adhocore/json-comment",
@@ -96,12 +96,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/altayofficial/BedrockProtocol.git",
-                "reference": "15ccda1f71727f77f5ae7726253457e9394919b6"
+                "reference": "bc19aad0ab45d8df5ed0af9a0af9f713379e7d1e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/altayofficial/BedrockProtocol/zipball/15ccda1f71727f77f5ae7726253457e9394919b6",
-                "reference": "15ccda1f71727f77f5ae7726253457e9394919b6",
+                "url": "https://api.github.com/repos/altayofficial/BedrockProtocol/zipball/bc19aad0ab45d8df5ed0af9a0af9f713379e7d1e",
+                "reference": "bc19aad0ab45d8df5ed0af9a0af9f713379e7d1e",
                 "shasum": ""
             },
             "require": {
@@ -145,7 +145,33 @@
             "support": {
                 "source": "https://github.com/altayofficial/BedrockProtocol/tree/master"
             },
-            "time": "2026-07-09T18:32:36+00:00"
+            "time": "2026-07-10T11:26:38+00:00"
+        },
+        {
+            "name": "altayofficial/worldupgraderschemas",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/altayofficial/WorldUpgraderSchemas.git",
+                "reference": "bc7c8ed1eef45a12c04fe7f8c115bafb3e133ff8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/altayofficial/WorldUpgraderSchemas/zipball/bc7c8ed1eef45a12c04fe7f8c115bafb3e133ff8",
+                "reference": "bc7c8ed1eef45a12c04fe7f8c115bafb3e133ff8",
+                "shasum": ""
+            },
+            "default-branch": true,
+            "type": "library",
+            "license": [
+                "CC0-1.0"
+            ],
+            "description": "JSON schemas for upgrading worlds",
+            "support": {
+                "source": "https://github.com/altayofficial/WorldUpgraderSchemas/tree/master",
+                "issues": "https://github.com/altayofficial/WorldUpgraderSchemas/issues"
+            },
+            "time": "2026-07-10T19:21:13+00:00"
         },
         {
             "name": "brick/math",
@@ -2719,7 +2745,8 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "altayofficial/bedrock-data": 20,
-        "altayofficial/bedrock-protocol": 20
+        "altayofficial/bedrock-protocol": 20,
+        "altayofficial/worldupgraderschemas": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
@@ -2752,9 +2779,9 @@
         "ext-zlib": ">=1.2.11",
         "composer-runtime-api": "^2.0"
     },
-    "platform-dev": [],
+    "platform-dev": {},
     "platform-overrides": {
         "php": "8.1.0"
     },
-    "plugin-api-version": "2.6.0"
+    "plugin-api-version": "2.9.0"
 }

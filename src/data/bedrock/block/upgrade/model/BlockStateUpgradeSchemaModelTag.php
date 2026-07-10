@@ -21,16 +21,10 @@
 
 declare(strict_types=1);
 
-namespace pocketmine\data\bedrock\item\upgrade;
+namespace pocketmine\data\bedrock\block\upgrade\model;
 
-use pocketmine\data\bedrock\LegacyToStringIdMap;
-use pocketmine\utils\SingletonTrait;
-use Symfony\Component\Filesystem\Path;
-
-final class LegacyItemIdToStringIdMap extends LegacyToStringIdMap{
-	use SingletonTrait;
-
-	public function __construct(){
-		parent::__construct(Path::join(\pocketmine\BEDROCK_ITEM_UPGRADE_SCHEMA_PATH, 'item_legacy_id_map.json'));
-	}
+final class BlockStateUpgradeSchemaModelTag{
+	public int $byte;
+	public int $int;
+	public string $string;
 }

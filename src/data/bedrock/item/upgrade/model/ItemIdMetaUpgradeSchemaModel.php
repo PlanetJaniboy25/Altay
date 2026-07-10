@@ -21,16 +21,19 @@
 
 declare(strict_types=1);
 
-namespace pocketmine\data\bedrock\item\upgrade;
+namespace pocketmine\data\bedrock\item\upgrade\model;
 
-use pocketmine\data\bedrock\LegacyToStringIdMap;
-use pocketmine\utils\SingletonTrait;
-use Symfony\Component\Filesystem\Path;
+final class ItemIdMetaUpgradeSchemaModel{
 
-final class LegacyItemIdToStringIdMap extends LegacyToStringIdMap{
-	use SingletonTrait;
+	/**
+	 * @var string[]
+	 * @phpstan-var array<string, string>
+	 */
+	public array $renamedIds = [];
 
-	public function __construct(){
-		parent::__construct(Path::join(\pocketmine\BEDROCK_ITEM_UPGRADE_SCHEMA_PATH, 'item_legacy_id_map.json'));
-	}
+	/**
+	 * @var string[][]
+	 * @phpstan-var array<string, array<int, string>>
+	 */
+	public array $remappedMetas = [];
 }

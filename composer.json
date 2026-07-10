@@ -35,6 +35,7 @@
       "netresearch/jsonmapper": "~v5.0.0",
       "altayofficial/bedrock-data": "dev-master",
       "altayofficial/bedrock-protocol": "dev-master",
+      "altayofficial/worldupgraderschemas": "dev-master",
       "pocketmine/binaryutils": "^0.2.1",
       "pocketmine/callback-validator": "~1.0.4",
       "pocketmine/color": "^0.3.0",
@@ -89,6 +90,10 @@
       {
          "type": "vcs",
          "url":  "git@github.com:altayofficial/BedrockData.git"
+      },
+      {
+         "type": "vcs",
+         "url":  "git@github.com:altayofficial/WorldUpgraderSchemas.git"
       }
    ],
    "scripts": {
