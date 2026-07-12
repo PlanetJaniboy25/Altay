@@ -58,6 +58,8 @@ final class CraftingManagerFromDataHelper{
 
 	private const NETWORK_INGREDIENT_WILDCARD_META = 0x7fff;
 
+	private const LEGACY_ALIAS_MAX_META = 15;
+
 	public static function deserializeItemStack(ItemStackData $data) : ?Item{
 		//count, name, block_name, block_states, meta, nbt, can_place_on, can_destroy
 		$blockStatesTag = null;
@@ -133,6 +135,32 @@ final class CraftingManagerFromDataHelper{
 		}
 	}
 
+	private static function deserializeComplexAliasIngredient(string $aliasName) : ?RecipeIngredient{
+		$idMetaUpgrader = GlobalItemDataHandlers::getUpgrader()->getIdMetaUpgrader();
+
+		$items = [];
+		$seenIds = [];
+		for($meta = 0; $meta <= self::LEGACY_ALIAS_MAX_META; $meta++){
+			[$newId,] = $idMetaUpgrader->upgrade($aliasName, $meta);
+			if(isset($seenIds[$newId])){
+				continue;
+			}
+			$seenIds[$newId] = true;
+
+			$item = self::deserializeItemStackFromFields($newId, 0, 1, null, null);
+			if($item !== null){ //unknown items (e.g. deprecated placeholders) are skipped
+				$items[] = $item;
+			}
+		}
+
+		if(count($items) === 0){
+			return null;
+		}
+		return count($items) === 1 ?
+			new ExactRecipeIngredient($items[0]) :
+			new ComplexAliasRecipeIngredient($aliasName, $items);
+	}
+
 	/**
 	 * @param mixed[] $data
 	 */
@@ -155,8 +183,10 @@ final class CraftingManagerFromDataHelper{
 		}
 
 		if($type === "complex_alias"){
-			//not enough information to resolve these
-			return null;
+			if(!isset($data["name"]) || !is_string($data["name"])){
+				throw new SavedDataLoadingException("complex_alias ingredient should have a string name");
+			}
+			return self::deserializeComplexAliasIngredient($data["name"]);
 		}
 
 		if($type !== "default"){
